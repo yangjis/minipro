@@ -29,8 +29,7 @@ public class PhoneApp {
 			String hp = data[1];
 			String company = data[2];
 			
-			Person p = new Person(name, hp, company);
-			pList.add(p);
+			pList.add(new Person(name, hp, company));
 		}
 		
 		System.out.println("***********************************");
@@ -41,7 +40,6 @@ public class PhoneApp {
 			System.out.println("1.리스트   2.등록   3.삭제   4.검색   5.종료");
 			System.out.println("------------------------------------");
 			System.out.print(">메뉴번호:");
-			
 			num = sc.nextInt();
 			
 			switch(num) {

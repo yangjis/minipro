@@ -32,7 +32,6 @@ public class PhoneManager {
 
 	// 시작준비 (시작화면 출려과 리스트 가져온다)
 	public void showTitle() throws Exception {
-		Reader fr;
 			System.out.println("***********************************");
 			System.out.println("*         전화번호 관리 프로그램               *");
 			System.out.println("***********************************");
@@ -110,8 +109,7 @@ public class PhoneManager {
 	
 	// 파일을 읽어 리스트에 담아 전달한다.
 	private List<Person> getList() throws Exception{
-		Reader fr = new FileReader("C:\\javaStudy\\workspace\\minipro\\PhoneDB.txt");
-		BufferedReader br = new BufferedReader(fr);
+		BufferedReader br = new BufferedReader(new FileReader("C:\\javaStudy\\workspace\\minipro\\PhoneDB.txt"));
 		List<Person> pList = new ArrayList<Person>();
 		
 		while(true) {
@@ -126,14 +124,13 @@ public class PhoneManager {
 			pList.add(new Person(name, hp,company));
 			
 		}
-		fr.close();
+		br.close();
 		return pList;
 	}
 
 	// 리스트를 파일에 저장한다.
 	private void saveList() throws IOException {
-		Writer fw = new FileWriter("C:\\javaStudy\\workspace\\minipro\\PhoneDB.txt");
-		BufferedWriter bw = new BufferedWriter(fw);
+		BufferedWriter bw = new BufferedWriter(new FileWriter("C:\\javaStudy\\workspace\\minipro\\PhoneDB.txt"));
 		for(Person p : pList) {
 			bw.write(p.getName() + "," + p.getHp() + "," + p.getCompany());
 			bw.newLine();

@@ -20,8 +20,7 @@ public class PhoneRepository {
     //phoneDB.txt 파일을 읽어 모든 전화번호(리스트)를 전달하는 메소드
 	public List<Person> getList() throws Exception{
 		
-		Reader fr = new FileReader("C:\\javaStudy\\workspace\\minipro\\PhoneDB.txt");
-		BufferedReader br = new BufferedReader(fr);
+		BufferedReader br = new BufferedReader(new FileReader("C:\\javaStudy\\workspace\\minipro\\PhoneDB.txt"));
 		pList = new ArrayList<Person>();
 		
 		while(true) {
